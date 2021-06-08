@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Loris Mernier</title>
+    <SCRIPT type='text/Javascript'>
+		function F_a_v()
+		{
+        // transfert de la valeur du champ texte variable d'entrée
+         Longueur = parseFloat(document.form1.Longueur.value);
+         Largeur = parseFloat(document.form1.Largeur.value);
+         Dosehomologué = parseFloat(document.form1.Dosehomologué.value);
+         Surfacecouverte = parseFloat(document.form1.Surfacecouverte.value);
+         Qe = parseFloat(document.form1.Qe.value);
+   
+    //calcul
+     Surface = Longueur * Largeur;
+     Qp = Dosehomologué * Surface / 10000;
+     Vb = Qe * Surface / Surfacecouverte;
+     Qet = Vb - Qp;
+    
+    //affichage des résulats
+     document.form1.Surface.value = Surface;
+     document.form1.Qp.value = Qp;
+     document.form1.Vb.value = Vb;
+     document.form1.Qet.value = Qet;
+        }
+	     </SCRIPT>
+
+</head>
+ <body>
+    <script type='text/Javascript'>
+    
+    //Déclaration des variables
+     var Qp; // Remarque: on initialise plus nous même la variable 
+     var Vb;
+     var Qet;
+     var Qe;
+     var Surfacecouverte;
+     var Surface;
+     var Dosehomologué;
+     var Largeur;
+     var Longueur;
+    
+    //Création du Formulaire
+     document.write("<FORM name='form1'>");
+     document.write("Ce programme calcule la portance<br>");
+     document.write("Longueur (M): <INPUT type='text' name='Longueur' size='10'><br>");
+     document.write("Largeur (M): <INPUT type='text' name='Largeur' size='10'><br>");
+     document.write("Dose Homologué (L/Ha): <INPUT type='text' name='Dosehomologué' size='10'><br>");
+     document.write("Surface couverte (m²): <INPUT type='text' name='Surfacecouverte' size='10'><br>");
+     document.write("Quantité d'eau épandu (Litres): <INPUT type='text' name='Qe' size='10'><br>");
+     document.write("<INPUT type='button' name='b1' value='Click ici pour calculer' onClick='F_a_v();'><br>");
+     document.write("Quantité de produit à épandre (Litres): <INPUT type='text' name='Qp' size='10' Readonly><br>");
+     document.write("Volume de bouillie (Litres): <INPUT type='text' name='Vb' size='10' Readonly><br>");
+     document.write("Quantité d'eau à utiliser (Litres): <INPUT type='text' name='Qet' size='10' Readonly><br>");
+     document.write("Surface (m²): <INPUT type='text' name='Surface' size='10' Readonly><br>");
+     document.write("</FORM>");
+
+</script>
+</body>
+</html>
